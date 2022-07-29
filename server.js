@@ -10,3 +10,4 @@ const schema = makeExecutableSchema({
 const server = new ApolloServer({schema});
 
 server.listen(4001).then(({url})=> console.log(url))
+

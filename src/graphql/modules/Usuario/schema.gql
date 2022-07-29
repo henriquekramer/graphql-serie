@@ -10,3 +10,7 @@ type Query {
   usuarios: [Usuario]
   usuario(id: Int): Usuario
 }
+
+type Mutation {
+  criarUsuario(nome: String, email: String, telefone: String): Usuario!
+}

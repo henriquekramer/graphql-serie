@@ -5,7 +5,7 @@ module.exports = {
       nome: "Henrique",
       email: "henrique@email.com",
       telefone: "41 1234 5678",
-      perfil: 1
+      perfil_id: 1
   
     },
     { 
@@ -13,7 +13,7 @@ module.exports = {
       nome: "Delbia",
       email: "delbia@email.com",
       telefone: "41 4321 8765",
-      perfil: 2
+      perfil_id: 2
     }
   ],
   perfis: [

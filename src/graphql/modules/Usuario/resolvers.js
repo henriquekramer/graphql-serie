@@ -19,8 +19,8 @@ module.exports = {
     }
   },
   Query: {
-    usuario(_, args){
-      return db.usuarios.find(db => db.id === args.id)
+    usuario(_, { filtro: { id, email} }){
+      return buscarUsuarioFiltro(id ? { id } : { email })
     },
     usuarios: ()=> db.usuarios
   },
@@ -55,6 +55,26 @@ module.exports = {
 
       db.usuarios.splice(indice, 1, novoUsuario)
       return novoUsuario
+    },
+    deletarUsuario(_, { filtro: { id, email} }){
+      return deletarUsuarioFiltro(id ? { id } : { email })
     }
   }
+}
+
+function deletarUsuarioFiltro(filtro){
+  const chave = Object.keys(filtro)[0]
+  const valor = Object.values(filtro)[0]
+
+  const usuarioEncontrado = db.usuarios.find(u => u[chave] === valor)
+  db.usuarios = db.usuarios.filter(u => u[chave] !== valor)
+
+  return !!usuarioEncontrado
+}
+
+function buscarUsuarioFiltro(filtro){
+  const chave = Object.keys(filtro)[0]
+  const valor = Object.values(filtro)[0]
+
+  return db.usuarios.find(db => db[chave] === valor) 
 }

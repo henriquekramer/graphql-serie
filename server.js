@@ -4,7 +4,12 @@ const { makeExecutableSchema } = require('@graphql-tools/schema');
 
 const schema = makeExecutableSchema({
   typeDefs,
-  resolvers
+  resolvers,
+  formatError: err => {
+    if(err.message.startsWith(`Usuário existente:`)){
+      return new Error(err.message)
+    }
+  }
 });
 
 const server = new ApolloServer({schema});

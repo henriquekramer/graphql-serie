@@ -1,5 +1,5 @@
 module.exports = {
-  usuarios: [
+  contatos: [
     { 
       id: 1,
       nome: "Henrique Kramer",

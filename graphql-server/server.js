@@ -10,7 +10,7 @@ const schema = makeExecutableSchema({
 const server = new ApolloServer({
   schema,
   formatError: (err) => {
-    if(err.message.startsWith(`Usuário existente:`)){
+    if(err.message.startsWith(`Contato existente:`)){
       return new Error(err.message)
     }
     return err

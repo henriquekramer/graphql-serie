@@ -31,3 +31,15 @@ export const REMOVE_CONTATO = gql`
   }
 `
 
+export const UPDATE_CONTATO = gql`
+  mutation atualizarContato($id: Int!, $nome: String, $email: String, $telefone: String){
+    atualizarContato(id: $id, data: {
+      nome: $nome,
+      email: $email,
+      telefone: $telefone,
+    }) {
+      id nome email telefone
+    }
+  }
+`
+
